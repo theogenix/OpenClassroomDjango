@@ -90,4 +90,37 @@ def listing_create(request):
                   'listings/listing_create.html',
                   {'form':form})
 
+def band_update(request, id):
+    band = Band.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            form.save()
+            return redirect('band-detail', band.id)
+    else:
+        form = BandForm(instance=band)
+
+    return render(request,
+                'listings/band_update.html',
+                {'form': form})
+
+def listing_update(request, id):
+    listing = Listing.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect('listing-detail', listing.id)
+    else:
+        form = ListingForm(instance=listing)
+
+    return render(request,
+                'listings/listings_update.html',
+                {'form': form})
+
+
+
+
 

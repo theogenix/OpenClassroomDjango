@@ -11,6 +11,7 @@
 <ul>
   {% for listing in listings %}
   <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.name }}</a></li>
+  -<a href="{% url 'listing-update' listing.id %}">[Editer]</a>
   {% endfor %}
 </ul>
 {% endblock %}
