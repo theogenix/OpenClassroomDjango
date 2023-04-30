@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}"/>
   </head>
   <body>
+    <nav>
+      <a href="{% url 'band-list' %}">Groupes</a>
+    </nav>
+    <nav>
+      <a href="{% url 'listing-list' %}">Listes</a>
+    </nav>
     {% block content %}{% endblock %}
   </body>
 </html>

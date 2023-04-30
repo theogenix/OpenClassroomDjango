@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<h1>Hello Django !</h1>
+<h1>Listing</h1>
 
 <p>Mes listings sont :</p>
 
 <ul>
-  {% for listing in listing %}
-  <li>{{ listing.name }}</li>
+  {% for listing in listings %}
+  <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.name }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}
